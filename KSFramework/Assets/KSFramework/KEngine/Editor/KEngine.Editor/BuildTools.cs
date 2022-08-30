@@ -258,7 +258,7 @@ namespace KEngine.Editor
             var outputPath = GetExportPath();
             KProfiler.BeginWatch("BuildAB");
             Log.Info("AsseBundle start build to: {0}", outputPath);
-            //压缩算法不建议用Lzma，要用LZ4 . Lzma读全部的buffer Lz4一个一个block读取，只读取4字节
+            //压缩算法不建议用Lzma，要用LZ4；Lzma读全部的buffer；Lz4一个一个block读取，只读取4字节
             var opt = BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.ChunkBasedCompression;//BuildAssetBundleOptions.AppendHashToAssetBundleName;
             BuildPipeline.BuildAssetBundles(outputPath, opt, EditorUserBuildSettings.activeBuildTarget);
             KProfiler.EndWatch("BuildAB","AsseBundle build Finish");

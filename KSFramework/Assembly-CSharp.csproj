@@ -79,6 +79,7 @@
      <Compile Include="Assets\KSFramework\Modules\UI\UILuaOutlet.cs" />
      <Compile Include="Assets\KSFramework\Modules\UI\LuaUIController.cs" />
      <Compile Include="Assets\XLua\Examples\08_Hotfix\HotfixTest2.cs" />
+     <Compile Include="Assets\Code\AppSettings\MyBillboardSetting.cs" />
      <Compile Include="Assets\XLua\Src\ObjectPool.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine\Utils\KTabFile.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine.Lib\IModuleInitable.cs" />
@@ -122,6 +123,7 @@
      <Compile Include="Assets\XLua\Src\SignatureLoader.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine\Utils\KEngineExtensions.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine.UI\UIDefs.cs" />
+     <Compile Include="Assets\XLua\BuildInInit.cs" />
      <Compile Include="Assets\KSFramework\Demo\LoadSpriteDemo.cs" />
      <Compile Include="Assets\XLua\Src\TypeExtensions.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine\CoreModules\ResourceModule\KWWWLoader.cs" />
@@ -163,7 +165,6 @@
      <Compile Include="Assets\KSFramework\KEngine\KEngine\UnityThreadDetect.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine\CoreModules\ResourceModule\LoaderDebugers\KResourceLoadedAssetDebugger.cs" />
      <Compile Include="Assets\KSFramework\Modules\Cookie.cs" />
-     <Compile Include="Assets\XLua\BuildInInit.cs" />
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
      <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
      <None Include="Assets\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
@@ -403,9 +404,6 @@
     <Reference Include="NPOI.OpenXmlFormats">
         <HintPath>E:\UnityProject\KSFramework\KSFramework\Assets\KSFramework\KEngine\KEngine.Lib\TableMLCompiler\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>E:\UnityProject\KSFramework\KSFramework\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.ValueTuple">
         <HintPath>E:\UnityProject\KSFramework\KSFramework\Assets\KSFramework\KEngine\KEngine.Lib\TableMLCompiler\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -432,6 +430,9 @@
     </Reference>
     <Reference Include="INIFileParser">
         <HintPath>E:\UnityProject\KSFramework\KSFramework\Assets\KSFramework\KEngine\KEngine.Lib\INIFileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>E:\UnityProject\KSFramework\KSFramework\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>D:\Program Files\Unity 2020.3.21f1c1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

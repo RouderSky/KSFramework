@@ -262,7 +262,7 @@ namespace KEngine.UI
         }
         
         /// <summary>
-        /// 打开窗口（非复制）
+        /// 打开指定UI界面（非复制）
         /// </summary>
         public UILoadState OpenWindow(string uiName, params object[] args)
         {

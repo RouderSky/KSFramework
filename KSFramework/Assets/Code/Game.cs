@@ -126,6 +126,8 @@ public class Game : KSGame
         assetLoader.Release();
   
         KResourceModule.Collect();
+
+        UIModule.Instance.OpenWindow("MyBillboard");
     }
 
     private void OnApplicationQuit()

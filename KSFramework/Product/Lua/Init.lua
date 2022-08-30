@@ -26,6 +26,7 @@ function new(table, ctorFunc)
 
     return tb
 end
+---todo wht：在这里导入CS代码？
 ---NOTE xlua中访问C#代码需要写完整的namespace
 ---@type KSFramework.Cookie
 Cookie = CS.KSFramework.Cookie
@@ -42,12 +43,15 @@ LoaderMode = CS.KEngine.LoaderMode
 ---@type KEngine.KSpriteAtlasLoader
 KSpriteAtlasLoader = CS.KEngine.KSpriteAtlasLoader
 
+-- 表
 ---@type AppSettings.BillboardSettings
 BillboardSettings = CS.AppSettings.BillboardSettings
 ---@type AppSettings.GameConfigSettings
 GameConfigSettings = CS.AppSettings.GameConfigSettings
 ---@type AppSettings.TestSettings
 TestSettings = CS.AppSettings.TestSettings
+---@type AppSettings.MyBillboardSettings
+MyBillboardSettings = CS.AppSettings.MyBillboardSettings
 
 UIBase = import("UI/UIBase")
 Tools 		= import("Tools")
