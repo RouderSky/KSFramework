@@ -163,6 +163,7 @@
      <Compile Include="Assets\KSFramework\KEngine\KEngine\UnityThreadDetect.cs" />
      <Compile Include="Assets\KSFramework\KEngine\KEngine\CoreModules\ResourceModule\LoaderDebugers\KResourceLoadedAssetDebugger.cs" />
      <Compile Include="Assets\KSFramework\Modules\Cookie.cs" />
+     <Compile Include="Assets\XLua\BuildInInit.cs" />
      <None Include="Assets\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
      <None Include="Assets\XLua\Tutorial\LoadLuaScript\ByFile\Resources\byfile.lua.txt" />
      <None Include="Assets\XLua\Examples\06_Coroutine\Resources\coruntine_test.lua.txt" />
@@ -171,6 +172,7 @@
      <None Include="Assets\KSFramework\KEngine\KEngine.Lib\TableMLCompiler\System.ValueTuple.xml" />
      <None Include="Assets\XLua\Resources\perf\profiler.lua.txt" />
      <None Include="Assets\KSFramework\KEngine\Resources\AppConfigs.txt" />
+     <None Include="Assets\XLua\Resources\protoc.lua.txt" />
      <None Include="Assets\XLua\Resources\perf\memory.lua.txt" />
      <None Include="Assets\KSFramework\KEngine\KEngine.Lib\TableMLCompiler\NPOI.xml" />
      <None Include="Assets\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />

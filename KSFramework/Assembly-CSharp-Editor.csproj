@@ -36,7 +36,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\XLua\Examples\08_Hotfix\Editor\HotfixTestCfg.cs" />
      <Compile Include="Assets\KSFramework\KEngine\Editor\KEngine.Editor\AlignEditor\AlignEditor.cs" />
      <Compile Include="Assets\KSFramework\Editor\KSFrameworkEditor.cs" />
      <Compile Include="Assets\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.cs" />

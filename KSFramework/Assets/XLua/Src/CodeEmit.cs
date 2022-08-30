@@ -207,11 +207,7 @@ namespace XLua
                 {
                     var assemblyName = new AssemblyName();
                     assemblyName.Name = "XLuaCodeEmit";
-#if NET5_0_OR_GREATER
-                    codeEmitModule = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run)
-#else
                     codeEmitModule = AppDomain.CurrentDomain.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run)
-#endif
                         .DefineDynamicModule("XLuaCodeEmit");
                 }
                 return codeEmitModule;
