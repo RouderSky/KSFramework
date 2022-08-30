@@ -7,6 +7,7 @@ SpriteAtlas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: atlas_common
+  serializedVersion: 2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -28,6 +29,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 21300000, guid: fe56e06ddb268bb4ab1e38207b70a9ff, type: 3}
@@ -36,8 +38,9 @@ SpriteAtlas:
     - {fileID: 21300000, guid: cdfb07923bb3cbe4c95901407db4e277, type: 3}
     - {fileID: 21300000, guid: e45fc02ab24ac59478753607ad89f27a, type: 3}
     - {fileID: 21300000, guid: a0ac60ffad453274eaba8fe51ddb7976, type: 3}
-    totalSpriteSurfaceArea: 41252
     bindAsDefault: 0
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: cdfb07923bb3cbe4c95901407db4e277, type: 3}
@@ -53,5 +56,7 @@ SpriteAtlas:
   - btn_panel_01
   - bg_wins1
   - img_redpoint_riceive03
+  m_RenderDataMap: {}
   m_Tag: atlas_common
   m_IsVariant: 0
+  m_IsPlaceholder: 0

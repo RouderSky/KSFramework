@@ -521,6 +521,9 @@ namespace KEngine
                     case "iOS":
                         buildPlatformName = "iOS";
                         break;
+                    case "WebGL":
+                        buildPlatformName = "WebGL";
+                        break;
                     default:
                         Debuger.Assert(false);
                         break;
@@ -544,6 +547,9 @@ namespace KEngine
                     case RuntimePlatform.WindowsWebPlayer:
 #endif
                         buildPlatformName = "Windows";
+                        break;
+                    case RuntimePlatform.WebGLPlayer:
+                        buildPlatformName = "WebGL";
                         break;
                     default:
                         Debuger.Assert(false);
