@@ -68,7 +68,7 @@ function UILogin:OnOpen(num1)
     end
     openCount = openCount + 1
     Cookie.Set('UILogin.OpenCount', openCount)
-    self:TestJson()
+    -- self:TestJson()
     print('Test cookie, Reload UI use (Ctrl+Alt+Shift+R)... UI Open Count: ' .. tostring(openCount))
 end
 

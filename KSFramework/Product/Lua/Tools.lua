@@ -1,4 +1,4 @@
-json = require('rapidjson')
+-- json = require('rapidjson')
 
 ---@type Tools
 local Tools = {}
@@ -12,24 +12,24 @@ function Tools.SetButton (button, func)
     end
 end
 
----@param tb table
-function table.table2JsonString(tb)
-    if (not tb or type(tb) ~= "table" ) then
-        warn("to json string fail,not table or nil")
-        return "{}"
-    end
-    --local newTb = table.tosimple(tb)
-    return json.encode(tb)
-end
+-- ---@param tb table
+-- function table.table2JsonString(tb)
+--     if (not tb or type(tb) ~= "table" ) then
+--         warn("to json string fail,not table or nil")
+--         return "{}"
+--     end
+--     --local newTb = table.tosimple(tb)
+--     return json.encode(tb)
+-- end
 
----
----@param jsonStr string
----@return table
-function table.jsonStr2Table(jsonStr)
-    if (not jsonStr or jsonStr == "") then
-        return nil
-    end
-    return json.decode(jsonStr)
-end
+-- ---
+-- ---@param jsonStr string
+-- ---@return table
+-- function table.jsonStr2Table(jsonStr)
+--     if (not jsonStr or jsonStr == "") then
+--         return nil
+--     end
+--     return json.decode(jsonStr)
+-- end
 
 return Tools

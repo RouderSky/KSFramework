@@ -139,10 +139,10 @@ namespace KSFramework
             LuaDLL.xlua_setglobal(L, "import");
             
             //TODO lua中需要require的第三方库加到这里，如果不需要则删除已添加的这几行
-            _luaEnv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
-            _luaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
-            _luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
-            _luaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
+            // _luaEnv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
+            // _luaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
+            // _luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
+            // _luaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
             yield return null;
 #endif
 

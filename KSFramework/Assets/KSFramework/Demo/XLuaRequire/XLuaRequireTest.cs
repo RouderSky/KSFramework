@@ -12,10 +12,10 @@ public class XLuaRequireTest : MonoBehaviour
     void Start()
     {
         LuaEnv luaenv = new LuaEnv();
-        luaenv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
-        luaenv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
-        luaenv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
-        luaenv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
+        // luaenv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
+        // luaenv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
+        // luaenv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
+        // luaenv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
         luaenv.DoString(@"
         ------------------------------------
         local rapidjson = require 'rapidjson' 
