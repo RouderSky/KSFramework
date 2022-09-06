@@ -30,7 +30,7 @@ function MyBillboard:OnOpen()
     self.TitleLabel.text = billboardSetting.Title
     self.ContentLabel.text = billboardSetting.Content
 
-    Log.Error("MyBillboard:OnOpen "..billboardSetting.Title.." "..billboardSetting.Content)
+    -- Log.Error("MyBillboard:OnOpen "..billboardSetting.Title.." "..billboardSetting.Content)
 end
 
 return MyBillboard

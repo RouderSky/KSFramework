@@ -12,6 +12,7 @@ public class XLuaRequireTest : MonoBehaviour
     void Start()
     {
         LuaEnv luaenv = new LuaEnv();
+        // todo wht 没有webGL的dll，所以无法使用rapidjson、lpeg、pb、ffi，加入webGL的dll
         // luaenv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
         // luaenv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
         // luaenv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);

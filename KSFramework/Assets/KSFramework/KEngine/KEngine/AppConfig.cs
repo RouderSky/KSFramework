@@ -138,6 +138,7 @@ public class AppConfig
 
     public static bool IsLoadAssetBundle = true;
 
+    //在编辑器下是否直接加载资源，而不加载ab资源
     //whether use assetdata.loadassetatpath insead of load asset bundle, editor only
     public static bool IsEditorLoadAsset = false;
 
@@ -146,6 +147,7 @@ public class AppConfig
     /// </summary>
     public const string SettingExt = ".tsv";
 
+    // todo wht 怎么用？
     //; config use lua  or c# + tsv
     public static bool IsUseLuaConfig = false;
     public const string SettingSourcePath = "Product/SettingSource";
