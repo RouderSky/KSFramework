@@ -54,6 +54,7 @@ namespace KSFramework
             /// </summary>
             public UnityEngine.Object Object;
         }
+        // todo wht 改为不允许直接在编辑器中编辑，一键扫描出UI中的m_Btn_xxx来填充到该数据结构中(可以将有问题的绑定放到前面)
         /// <summary>
         /// Serialized outlet infos
         /// 可以减少lua端的find操作

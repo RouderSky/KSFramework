@@ -132,6 +132,7 @@ namespace KEngine
                     break;
                 case RuntimePlatform.WindowsPlayer:
                 case RuntimePlatform.OSXPlayer:
+                case RuntimePlatform.WebGLPlayer:       //todo wht 可以吗？
                 {
                     string path = Application.streamingAssetsPath.Replace('\\', '/');
                     AppBasePath = path + "/";

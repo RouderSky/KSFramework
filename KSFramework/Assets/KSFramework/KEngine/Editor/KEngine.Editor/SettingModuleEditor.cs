@@ -58,7 +58,7 @@ namespace KEngine.Editor
         public static string[] GenerateCodeFilesFilter = null;
 
         /// <summary>
-        /// 条件编译变量
+        /// 用于配置表的条件编译变量
         /// </summary>
         public static string[] CompileSettingConditionVars;
 
