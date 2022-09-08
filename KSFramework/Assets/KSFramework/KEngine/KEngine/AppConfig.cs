@@ -147,7 +147,7 @@ public class AppConfig
     /// </summary>
     public const string SettingExt = ".tsv";
 
-    // todo wht 怎么用？
+    // todo wht lua表怎么热重载？
     //; config use lua  or c# + tsv
     public static bool IsUseLuaConfig = false;
     public const string SettingSourcePath = "Product/SettingSource";

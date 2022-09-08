@@ -34,12 +34,12 @@ function UIBillboard:OnOpen()
     --end
     local billboardSetting = BillboardSettings.Get('Billboard' .. tostring(rand))
     ---@type Billboard
-    --local billboardSetting = Billboard['Billboard1']
+    -- local billboardSetting = Billboard['Billboard1']
     self.txtTitle.text = billboardSetting.Title
     self.txtContent.text = billboardSetting.Content
 
     --尝试从Billboard.lua中读取配置数据
-    print("from lua config ,id:",billboardSetting.Id)
+    print("from lua config ,id:", billboardSetting.Id, billboardSetting.Content)
 end
 
 function UIBillboard:OnClose()

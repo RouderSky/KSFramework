@@ -189,6 +189,12 @@ namespace KEngine.Editor
         //    return programVersionFile;
         //}
 
+        [MenuItem("KEngine/AutoBuilder/WebGL")]
+        public static void PerformWebGLBuild()
+        {
+        	PerformBuild("Apps/WebGLProjects/", BuildTargetGroup.WebGL,BuildTarget.WebGL, BuildOptions.None);
+        }
+
         [MenuItem("KEngine/AutoBuilder/WindowsX86 Dev")] 
         public static void PerformWinBuild()
         {
