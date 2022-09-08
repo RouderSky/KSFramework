@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{bfd79099-f674-5baa-37f7-530c71f81da6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mischief.MDV.Editor", "Mischief.MDV.Editor.csproj", "{1b43750c-fb32-56e9-f6c3-a0c13fe63903}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,8 @@ Global
 		{5c5f0751-1271-d060-80e0-6dc8667fada0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bfd79099-f674-5baa-37f7-530c71f81da6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bfd79099-f674-5baa-37f7-530c71f81da6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1b43750c-fb32-56e9-f6c3-a0c13fe63903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1b43750c-fb32-56e9-f6c3-a0c13fe63903}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
