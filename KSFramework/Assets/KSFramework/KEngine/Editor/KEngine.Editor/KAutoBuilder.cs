@@ -192,7 +192,14 @@ namespace KEngine.Editor
         [MenuItem("KEngine/AutoBuilder/WebGL")]
         public static void PerformWebGLBuild()
         {
-        	PerformBuild("Apps/WebGLProjects/", BuildTargetGroup.WebGL,BuildTarget.WebGL, BuildOptions.None);
+            //wht 开启函数调用堆栈
+            #if !(UNITY_2021_2_OR_NEWER)
+                PlayerSettings.WebGL.emscriptenArgs += " --profiling-funcs";
+            #else
+                PlayerSettings.WebGL.debugSymbolMode = WebGLDebugSymbolMode.Embedded;
+            #endif
+
+        	PerformBuild("Apps/WebGL/", BuildTargetGroup.WebGL,BuildTarget.WebGL, BuildOptions.None);
         }
 
         [MenuItem("KEngine/AutoBuilder/WindowsX86 Dev")] 

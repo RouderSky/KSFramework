@@ -132,7 +132,6 @@ namespace KEngine
                     break;
                 case RuntimePlatform.WindowsPlayer:
                 case RuntimePlatform.OSXPlayer:
-                case RuntimePlatform.WebGLPlayer:       //todo wht 可以吗？
                 {
                     string path = Application.streamingAssetsPath.Replace('\\', '/');
                     AppBasePath = path + "/";
@@ -154,6 +153,13 @@ namespace KEngine
                     // only iPhone need to Escape the fucking Url!!! other platform works without it!!!
                     AppBasePath = System.Uri.EscapeUriString(Application.dataPath + "/Raw");
                     AppBasePathWithProtocol = fileProtocol + AppBasePath;
+                }
+                    break;
+                case RuntimePlatform.WebGLPlayer:
+                {
+                    //TODO wht
+                    AppBasePath = Application.streamingAssetsPath + "/";
+                    AppBasePathWithProtocol = AppBasePath;
                 }
                     break;
                 default:

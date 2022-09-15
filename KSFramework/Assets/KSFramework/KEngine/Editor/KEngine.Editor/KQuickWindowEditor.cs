@@ -307,6 +307,15 @@ public class KQuickWindowEditor : EditorWindow
     void DrawBuildUI()
     {
         GUILayout.BeginHorizontal("HelpBox");
+        EditorGUILayout.LabelField("== CDN ==");
+        GUILayout.EndHorizontal();
+        if (GUILayout.Button("打开CDN工具文件夹", GUILayout.ExpandWidth(true), GUILayout.MaxHeight(20)))
+        {
+            var path = "../build_tools";
+            OpenFolder(path,true);
+        }
+
+        GUILayout.BeginHorizontal("HelpBox");
         EditorGUILayout.LabelField("== 生成安装包 ==");
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
@@ -345,6 +354,11 @@ public class KQuickWindowEditor : EditorWindow
         GUILayout.EndHorizontal();
         
         GUILayout.BeginHorizontal();
+        if (GUILayout.Button("打WebGL版", GUILayout.ExpandWidth(true), GUILayout.MaxHeight(20)))
+        {
+            KAutoBuilder.PerformWebGLBuild();
+        }
+
         if (GUILayout.Button("打PC版", GUILayout.ExpandWidth(true), GUILayout.MaxHeight(20)))
         {
             KAutoBuilder.PerformWinReleaseBuild();
