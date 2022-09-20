@@ -120,6 +120,16 @@ namespace KEngine
             _mainAssetBundle = AssetBundle.LoadFromMemory(bytesLoader.Bytes);
             Debuger.Assert(_mainAssetBundle!=null,"load manifest ab error");
             _assetBundleManifest = _mainAssetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+            
+            // KBytesLoader bytesLoader = KBytesLoader.Load(manifestPath, LoaderMode.Async);
+            // bytesLoader.AddCallback((bool isOk, object resultObject) =>
+            // {
+            //     Debuger.Assert(bytesLoader!=null,$"load manifest byte error path:{manifestPath}");
+            //     _mainAssetBundle = AssetBundle.LoadFromMemory(bytesLoader.Bytes);
+            //     Debuger.Assert(_mainAssetBundle!=null,"load manifest ab error");
+            //     _assetBundleManifest = _mainAssetBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+            //     Log.Error("wht PreLoadManifest "+_assetBundleManifest);
+            // });
         }
 #endif
 

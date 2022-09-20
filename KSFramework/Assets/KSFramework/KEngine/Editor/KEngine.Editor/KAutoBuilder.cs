@@ -39,6 +39,18 @@ using UnityEngine.Rendering;
 
 namespace KEngine.Editor
 {
+    // public static class SettingProject
+    // {
+    //     [InitializeOnLoadMethod]
+    //     public static void Init()
+    //     {
+    //         // 取消启动图
+    //         PlayerSettings.SplashScreen.show = false;
+    //         // 取消Unity LOGO
+    //         PlayerSettings.SplashScreen.showUnityLogo = false;
+    //     }
+    // }
+
     public class KAutoBuilder
     {
         private static string GetProjectName()
