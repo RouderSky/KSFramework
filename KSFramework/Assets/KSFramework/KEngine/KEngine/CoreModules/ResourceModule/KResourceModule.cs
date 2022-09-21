@@ -110,7 +110,7 @@ namespace KEngine
             string editorProductPath = EditorProductFullPath;
             BundlesPathRelative = string.Format("{0}/{1}/", AppConfig.StreamingBundlesFolderName, GetBuildPlatformName());
             string fileProtocol = GetFileProtocol;
-            AppDataPathWithProtocol = fileProtocol + AppDataPath;
+            AppDataPathWithProtocol = fileProtocol + AppDataPath;       //wht WebGL需要file前缀吗
 
             switch (Application.platform)
             {
@@ -159,7 +159,7 @@ namespace KEngine
                 {
                     //TODO wht
                     AppBasePath = Application.streamingAssetsPath + "/";
-                    AppBasePathWithProtocol = AppBasePath;
+                    AppBasePathWithProtocol = fileProtocol + AppBasePath;       //wht WebGL需要file前缀吗
                 }
                     break;
                 default:
@@ -201,23 +201,23 @@ namespace KEngine
         /// <summary>
         /// 安装包内的路径，移动平台为只读权限，针对Application.streamingAssetsPath进行多平台处理，以/结尾
         /// </summary>
-        public static string AppBasePath { get; private set; }
+        public static string AppBasePath { get; private set; }                  //wht 本地路径
 
         /// <summary>
         /// WWW的读取需要file://前缀
         /// </summary>
-        public static string AppBasePathWithProtocol { get; private set; }
+        public static string AppBasePathWithProtocol { get; private set; }      //wht 本地路径；好像没怎么用到
 
 
         private static string appDataPath = null;
         /// <summary>
         /// app的数据目录，有读写权限，实际是Application.persistentDataPath，以/结尾
         /// </summary>
-        public static string AppDataPath
+        public static string AppDataPath        //wht 热更路径
         {
             get
             {
-                if (appDataPath == null) appDataPath = Application.persistentDataPath + "/";
+                if (appDataPath == null) appDataPath = Application.persistentDataPath + "/";        //wht WebGL下返回类似/idbfs/ef301f25d1b8e2bca70fafc1316f1a92/这样的路径
                 return appDataPath;
             }
         }
@@ -225,7 +225,7 @@ namespace KEngine
         /// <summary>
         /// file://+Application.persistentDataPath
         /// </summary>
-        public static string AppDataPathWithProtocol;
+        public static string AppDataPathWithProtocol;   //wht 热更路径；好像没怎么用到
 
         /// <summary>
         /// Bundles/Android/ etc... no prefix for streamingAssets
@@ -334,6 +334,7 @@ namespace KEngine
         /// <returns></returns>
         public static GetResourceFullPathType GetResourceFullPath(string url, bool withFileProtocol, out string fullPath, bool raiseError = true)
         {
+            Log.Logs($"wht KResourceModule GetResourceFullPath0  {withFileProtocol}");
             if (string.IsNullOrEmpty(url))
             {
                 Log.Error("尝试获取一个空的资源路径！");
@@ -342,6 +343,7 @@ namespace KEngine
             }
             string docUrl;
             bool hasDocUrl = TryGetAppDataUrl(url, withFileProtocol, out docUrl);
+            Log.Logs($"wht KResourceModule GetResourceFullPath1 热更路径 {hasDocUrl} {docUrl}");
             if (hasDocUrl)
             {
                 fullPath = docUrl;
@@ -350,6 +352,7 @@ namespace KEngine
             
             string inAppUrl;
             bool hasInAppUrl = TryGetInAppStreamingUrl(url, withFileProtocol, out inAppUrl);
+            Log.Logs($"wht KResourceModule GetResourceFullPath 本地路径 {hasInAppUrl} {inAppUrl}");
             if (!hasInAppUrl) // 连本地资源都没有，直接失败吧 ？？ 
             {
                 if (raiseError) Log.Error($"[Not Found] StreamingAssetsPath Url Resource: {url} ,fullPath:{inAppUrl}");
@@ -576,16 +579,20 @@ namespace KEngine
         /// <returns></returns>
         public static byte[] LoadAssetsSync(string path)
         {
-            string fullPath = GetResourceFullPath(path, false);
+            Log.Logs($"wht KBytesLoader LoadAssetsSync1 {path}");
+            string fullPath = GetResourceFullPath(path, false);         //wht webGL下，这个函数会返回带ip地址的路径
+            Log.Logs($"wht KBytesLoader LoadAssetsSync2 {fullPath}");
             if (string.IsNullOrEmpty(fullPath))
                 return null;
 
             if (Application.platform == RuntimePlatform.Android)
             {
+                Log.Logs($"wht KBytesLoader LoadAssetsSync3 {path}");
                 return KEngineAndroidPlugin.GetAssetBytes(path);
                 //TODO 通过www/webrequest读取
             }
 
+            Log.Logs($"wht KBytesLoader LoadAssetsSync4 {fullPath}");
             return ReadAllBytes(fullPath);
         }
 
@@ -595,6 +602,7 @@ namespace KEngine
         /// <param name="resPath"></param>
         public static byte[] ReadAllBytes(string resPath)
         {
+            Log.Logs($"wht KBytesLoader ReadAllBytes {resPath}");
             byte[] bytes;
             using (FileStream fs = File.Open(resPath, FileMode.Open, FileAccess.Read,FileShare.Read))
             {

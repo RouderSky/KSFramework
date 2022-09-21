@@ -16,7 +16,7 @@ namespace WeChatWASM.Analysis
 
         static private EditorWindow win;
 
-        [MenuItem("微信小游戏 / 资源优化工具")]
+        [MenuItem("WeChat / 资源优化工具")]
         static void ShowTextureWindow()
         {
             //EditorUtility.DisplayDialog("MyTool", "Do It in C# !", "OK", "");

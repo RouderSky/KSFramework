@@ -72,7 +72,7 @@ namespace WeChatWASM
     }
     public class WXUpdateWindow : EditorWindow
     {
-        [MenuItem("微信小游戏 / 插件管理")]
+        [MenuItem("WeChat / 插件管理")]
         public static void Open()
         {
 

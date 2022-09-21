@@ -66,7 +66,7 @@ namespace WeChatWASM
     {
         public static WXEditorScriptObject miniGameConf;
 
-        [MenuItem("微信小游戏 / 包体瘦身--压缩纹理")]
+        [MenuItem("WeChat / 包体瘦身--压缩纹理")]
         public static void Open()
         {
             miniGameConf = UnityUtil.GetEditorConf();

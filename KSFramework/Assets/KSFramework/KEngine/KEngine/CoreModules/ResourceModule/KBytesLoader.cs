@@ -55,7 +55,7 @@ namespace KEngine
         {
             base.Init(url, args);
 
-            Log.Error("wht KBytesLoader:Init "+(new System.Diagnostics.StackTrace()).ToString());
+            Log.Logs("wht KBytesLoader:Init "+(new System.Diagnostics.StackTrace()).ToString());
 
             _loaderMode = (LoaderMode)args[0];
             KResourceModule.Instance.StartCoroutine(CoLoad(url));
@@ -63,22 +63,22 @@ namespace KEngine
         
         private IEnumerator CoLoad(string url)
         {
-            Log.Error($"wht KBytesLoader CoLoad1 {url}");
+            Log.Logs($"wht KBytesLoader CoLoad1 {url}");
 
             if (_loaderMode == LoaderMode.Sync)
             {
-                Log.Error($"wht KByte/sLoader CoLoad2 {url}");
+                Log.Logs($"wht KBytesLoader CoLoad2 {url}");
                 Bytes = KResourceModule.LoadAssetsSync(url);
             }
             else
             {
-                Log.Error($"wht KBytesLoader CoLoad3 {url}");
+                Log.Logs($"wht KBytesLoader CoLoad3 {url}");
                 string _fullUrl;
                 var getResPathType = KResourceModule.GetResourceFullPath(url, _loaderMode == LoaderMode.Async, out _fullUrl);
-                Log.Error($"wht KBytesLoader CoLoad4 {_fullUrl}");
+                Log.Logs($"wht KBytesLoader CoLoad4 {_fullUrl}");
                 if (getResPathType == KResourceModule.GetResourceFullPathType.Invalid)
                 {
-                    Log.Error("[HotBytesLoader]Error Path: {0}", url);
+                    Log.Logs("[HotBytesLoader]Error Path: {0}", url);
                     OnFinish(null);
                     yield break;
                 }
@@ -91,7 +91,7 @@ namespace KEngine
 
                 if (!_wwwLoader.IsSuccess)
                 {
-                    Log.Error("[HotBytesLoader]Error Load WWW: {0}", url);
+                    Log.Logs("[HotBytesLoader]Error Load WWW: {0}", url);
                     OnFinish(null);
                     yield break;
                 }

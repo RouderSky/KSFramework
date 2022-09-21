@@ -65,7 +65,7 @@ namespace WeChatWASM
         public int loadingBarWidth = 240;
         public bool needCheckUpdate = false;
 
-        [MenuItem("微信小游戏 / 转换小游戏", false, 1)]
+        [MenuItem("WeChat / 转换小游戏", false, 1)]
         public static void Open()
         {
 

@@ -11,7 +11,7 @@ namespace WeChatWASM
 
 
         
-        [MenuItem("微信小游戏 / PlayerPrefs优化")]
+        [MenuItem("WeChat / PlayerPrefs优化")]
         public static void Open()
         {
 
