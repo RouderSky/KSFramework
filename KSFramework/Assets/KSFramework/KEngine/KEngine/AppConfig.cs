@@ -59,7 +59,7 @@ public class AppConfig
     /// <summary>
     /// 是否开启下载更新的功能，doc:https://mr-kelly.github.io/KSFramework/advanced/autoupdate/
     /// </summary>
-    public static bool IsDownloadRes = false; 
+    public static bool IsDownloadRes = false;
 
     private static string versionTextPath = null;
     public static string VersionTextPath
