@@ -27,6 +27,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Net;
 using UnityEngine;
 using UnityEngine.U2D;
 using Object = UnityEngine.Object;
@@ -158,6 +159,7 @@ namespace KEngine
                 case RuntimePlatform.WebGLPlayer:
                 {
                     //TODO wht
+                    Log.Logs($"wht KResourceModule InitResourcePath");
                     AppBasePath = Application.streamingAssetsPath + "/";
                     AppBasePathWithProtocol = fileProtocol + AppBasePath;       //wht WebGL需要file前缀吗
                 }
@@ -399,8 +401,16 @@ namespace KEngine
         /// <returns></returns>
         public static bool TryGetAppDataUrl(string url, bool withFileProtocol, out string newUrl)
         {
-            newUrl = Path.GetFullPath((withFileProtocol ? AppDataPathWithProtocol : AppDataPath) + url);
-            return File.Exists(Path.GetFullPath(AppDataPath + url));
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                newUrl = (withFileProtocol ? AppDataPathWithProtocol : AppDataPath) + url;
+                return false;        //todo wht 怎么判文件是否存在，不判会有问题
+            }
+            else
+            {
+                newUrl = Path.GetFullPath((withFileProtocol ? AppDataPathWithProtocol : AppDataPath) + url);
+                return File.Exists(Path.GetFullPath(AppDataPath + url));
+            }
         }
 
         /// <summary>
@@ -412,7 +422,15 @@ namespace KEngine
         /// <returns></returns>
         public static bool TryGetInAppStreamingUrl(string url, bool withFileProtocol, out string newUrl)
         {
-            newUrl = Path.GetFullPath((withFileProtocol ? AppBasePathWithProtocol : AppBasePath) + url);
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                newUrl = (withFileProtocol ? AppBasePathWithProtocol : AppBasePath) + url;
+            }
+            else
+            {
+                newUrl = Path.GetFullPath((withFileProtocol ? AppBasePathWithProtocol : AppBasePath) + url);
+            }
+            Log.Logs($"wht KResourceModule TryGetInAppStreamingUrl1 {url} {newUrl}");
             
             if (Application.isEditor)
             {
@@ -425,6 +443,10 @@ namespace KEngine
             else if(Application.platform == RuntimePlatform.Android) // 注意，StreamingAssetsPath在Android平台時，壓縮在apk里面，不要使用File做文件檢查
             {
                 return KEngineAndroidPlugin.IsAssetExists(url);
+            }
+            else if(Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                //todo wht 怎么判文件是否存在
             }
 
             // Windows/Editor平台下，进行大小敏感判断
@@ -572,6 +594,31 @@ namespace KEngine
             return buildPlatformName;
         }
 
+        public static byte[] WWWLoadAssetsSync(string path)
+        {
+            Log.Logs($"wht KResourceModule WWWLoadAssetsSync1 {path}");
+            MemoryStream outMemStream = new MemoryStream();
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(path);
+            Log.Logs($"wht KResourceModule WWWLoadAssetsSync2 {path}");
+            WebResponse response = request.GetResponse();
+            Stream inStream = response.GetResponseStream();//获取http
+            byte[] b = new byte[1024];//每一次获取的长度
+            int readCount = inStream.Read(b, 0, b.Length);//读流
+            while (readCount > 0)
+            {
+                outMemStream.Write(b, 0, readCount);//写流
+                readCount = inStream.Read(b, 0, b.Length);//再读流
+            }
+
+            byte[] res = outMemStream.ToArray();
+
+            outMemStream.Close();
+            inStream.Close();
+            response.Close();
+
+            return res;
+        }
+
         /// <summary>
         /// Load file. On Android will use plugin to do that.
         /// </summary>
@@ -579,20 +626,25 @@ namespace KEngine
         /// <returns></returns>
         public static byte[] LoadAssetsSync(string path)
         {
-            Log.Logs($"wht KBytesLoader LoadAssetsSync1 {path}");
+            Log.Logs($"wht KResourceModule LoadAssetsSync1 {path}");
             string fullPath = GetResourceFullPath(path, false);         //wht webGL下，这个函数会返回带ip地址的路径
-            Log.Logs($"wht KBytesLoader LoadAssetsSync2 {fullPath}");
+            Log.Logs($"wht KResourceModule LoadAssetsSync2 {fullPath}");
             if (string.IsNullOrEmpty(fullPath))
                 return null;
 
             if (Application.platform == RuntimePlatform.Android)
             {
-                Log.Logs($"wht KBytesLoader LoadAssetsSync3 {path}");
+                Log.Logs($"wht KResourceModule LoadAssetsSync3");
                 return KEngineAndroidPlugin.GetAssetBytes(path);
+            }
+            else if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                Log.Logs($"wht KResourceModule LoadAssetsSync4");
                 //TODO 通过www/webrequest读取
+                return WWWLoadAssetsSync(fullPath);
             }
 
-            Log.Logs($"wht KBytesLoader LoadAssetsSync4 {fullPath}");
+            Log.Logs($"wht KResourceModule LoadAssetsSync5 {fullPath}");
             return ReadAllBytes(fullPath);
         }
 
@@ -602,7 +654,7 @@ namespace KEngine
         /// <param name="resPath"></param>
         public static byte[] ReadAllBytes(string resPath)
         {
-            Log.Logs($"wht KBytesLoader ReadAllBytes {resPath}");
+            Log.Logs($"wht KResourceModule ReadAllBytes {resPath}");
             byte[] bytes;
             using (FileStream fs = File.Open(resPath, FileMode.Open, FileAccess.Read,FileShare.Read))
             {

@@ -246,11 +246,15 @@ namespace KEngine
 
         protected virtual void OnFinish(object resultObj)
         {
+            Log.Logs($"wht AbstractResourceLoader OnFinish1 {resultObj}");
+
             // 如果ReadyDispose，无效！不用传入最终结果！
             ResultObject = resultObj;
 
             // 如果ReadyDisposed, 依然会保存ResultObject, 但在回调时会失败~无回调对象
             var callbackObject = !IsReadyDisposed ? ResultObject : null;
+
+            Log.Logs($"wht AbstractResourceLoader OnFinish2 {callbackObject}");
 
             FinishTiming = Time.realtimeSinceStartup;
             Progress = 1;
